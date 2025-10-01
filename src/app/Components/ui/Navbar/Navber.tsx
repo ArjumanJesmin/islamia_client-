@@ -1,0 +1,119 @@
+"use client"
+
+import Link from "next/link"
+import { Menu } from "lucide-react"
+import { useState, useEffect } from "react"
+
+import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { ModeToggle } from "../DarkModeToggle"
+
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return (
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled 
+        ? 'bg-background/80 backdrop-blur-md border-b border-border shadow-sm' 
+        : 'bg-background/95 backdrop-blur-sm border-b border-border/40'
+    }`}>
+      <div className="container">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2">
+            <div className="w-10 h-10 bg-gradient-to-br from-school-primary to-school-secondary rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm">ইস</span>
+            </div>
+            <span className="text-xl font-bold bg-gradient-to-r from-school-primary to-school-secondary bg-clip-text text-transparent">
+              ইসরামিয়া সরকারি প্রাথমিক বিদ্যালয়
+            </span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-1">
+            <div className="flex items-center space-x-6 mr-6">
+              <Link 
+                href="/" 
+                className="text-sm font-medium text-foreground/80 hover:text-school-primary transition-colors duration-200"
+              >
+                হোম
+              </Link>
+              <Link 
+                href="/about" 
+                className="text-sm font-medium text-foreground/80 hover:text-school-primary transition-colors duration-200"
+              >
+                আমাদের সম্পর্কে
+              </Link>
+              <Link 
+                href="/academics" 
+                className="text-sm font-medium text-foreground/80 hover:text-school-primary transition-colors duration-200"
+              >
+                একাডেমিক
+              </Link>
+              <Link 
+                href="/contact" 
+                className="text-sm font-medium text-foreground/80 hover:text-school-primary transition-colors duration-200"
+              >
+                যোগাযোগ
+              </Link>
+            </div>
+            <ModeToggle />
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className="flex md:hidden items-center space-x-2">
+            <ModeToggle/>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                <div className="flex flex-col space-y-6 mt-8">
+                  <Link 
+                    href="/" 
+                    className="text-lg font-medium hover:text-school-primary transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    হোম
+                  </Link>
+                  <Link 
+                    href="/about" 
+                    className="text-lg font-medium hover:text-school-primary transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    আমাদের সম্পর্কে
+                  </Link>
+                  <Link 
+                    href="/academics" 
+                    className="text-lg font-medium hover:text-school-primary transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    একাডেমিক
+                  </Link>
+                  <Link 
+                    href="/contact" 
+                    className="text-lg font-medium hover:text-school-primary transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    যোগাযোগ
+                  </Link>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
+      </div>
+    </nav>
+  )
+}
