@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
+// import DashboardRouter from "../components/dasboardRouter";
 
 const DashboardPage = () => {
-    return (
-        <div>
-            <h2>Dashboard</h2>
-        </div>
-    );
+  return (
+    <div>
+      {/* <DashboardRouter /> */}
+      <h2>Dashboard</h2>
+    </div>
+  );
 };
 
 export default DashboardPage;

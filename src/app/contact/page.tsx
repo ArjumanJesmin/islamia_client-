@@ -216,11 +216,11 @@ export default function Contact() {
               <div className="bg-muted rounded-lg h-96 flex items-center justify-center">
                 <div className="text-center text-muted-foreground">
                   <MapPin className="w-12 h-12 mx-auto mb-4 text-school-primary" />
-                  <p className="text-lg">ইসরামিয়া সরকারি প্রাথমিক বিদ্যালয়</p>
-                  <p className="text-sm">স্কুল রোড, ইসলামপুর, জামালপুর</p>
+                  <p className="text-lg">ইসয়ামিয়া সরকারি প্রাথমিক বিদ্যালয়, </p>
+                  <p className="text-sm">কলেজ রোড ,সাতক্ষীরা সদর,সাতক্ষীরা</p>
                   <Button asChild variant="outline" className="mt-4">
-                    <a 
-                      href="https://maps.google.com/?q=ইসরামিয়া+সরকারি+প্রাথমিক+বিদ্যালয়,জামালপুর" 
+                    <a
+                      href="https://maps.google.com/?q=ইসয়ামিয়া+সরকারি+প্রাথমিক+বিদ্যালয়,সাতক্ষীরা সদর,সাতক্ষীরা"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

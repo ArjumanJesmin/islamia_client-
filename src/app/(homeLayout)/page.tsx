@@ -1,6 +1,8 @@
  "use client"
 
+import Academics from "../academics/page";
 import HeroSection from "../Components/ui/HeroSection/HeroSection";
+import Contact from "../contact/page";
 
 export default function HomePage() {
   const images = [
@@ -19,6 +21,9 @@ export default function HomePage() {
         ctaText="আরও জানুন"
         onCtaClick={() => alert("About page এ যাবে")}
       />
+      <Academics />
+      <Contact />
+
     </div>
   );
 }
