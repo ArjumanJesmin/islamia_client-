@@ -42,7 +42,7 @@ export default function NotFound() {
           </p>
           
           <p className="text-gray-500 dark:text-gray-400 max-w-md mx-auto leading-relaxed">
-            সম্ভবত URL-টি ভুল打了 হয়েছে, অথবা পৃষ্ঠাটি অন্য জায়গায় সরিয়ে নেওয়া হয়েছে। 
+            সম্ভবত URL-টি ভুল হয়েছে, অথবা পৃষ্ঠাটি অন্য জায়গায় সরিয়ে নেওয়া হয়েছে। 
             নিচের বাটনগুলো ব্যবহার করে আপনার পথ খুঁজে নিন।
           </p>
         </div>
@@ -99,12 +99,12 @@ export default function NotFound() {
             আমাদের সাপোর্ট টিম আপনার সাহায্যের জন্য প্রস্তুত
           </p>
           <div className="flex gap-3 justify-center">
-            <Button asChild variant="outline" size="sm" className="border-blue-200 text-blue-700">
+            <Button asChild variant="outline" size="sm" className="border-blue-200 text-school-secondary hover:bg-school-secondary/10">
               <Link href="/help">
                 হেল্প সেন্টার
               </Link>
             </Button>
-            <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700">
+            <Button asChild size="sm" className="bg-school-primary hover:bg-school-primary/90 text-white">
               <Link href="/contact">
                 যোগাযোগ করুন
               </Link>

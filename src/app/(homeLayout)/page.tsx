@@ -1,6 +1,12 @@
  "use client"
 
 import Academics from "../academics/page";
+import { AcademicProgramsSection } from "../Components/sections/AcademicProgramsSection";
+import { TestimonialsSection } from "../Components/sections/TestimonialsSection";
+import { FeaturesSection } from "../Components/sections/FeaturesSection";
+import { GallerySection } from "../Components/sections/GallerySection";
+import WelcomeSection from "../Components/sections/WelcomeSection";
+
 import HeroSection from "../Components/ui/HeroSection/HeroSection";
 import Contact from "../contact/page";
 
@@ -21,9 +27,13 @@ export default function HomePage() {
         ctaText="আরও জানুন"
         onCtaClick={() => alert("About page এ যাবে")}
       />
+        {/* <WelcomeSection />
+      <FeaturesSection /> */}
+      <AcademicProgramsSection />
+      <TestimonialsSection />
+      <GallerySection />
       <Academics />
       <Contact />
-
     </div>
   );
 }
