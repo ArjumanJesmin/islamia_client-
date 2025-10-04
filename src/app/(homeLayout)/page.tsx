@@ -1,5 +1,3 @@
- "use client"
-
 import Academics from "../academics/page";
 import { AcademicProgramsSection } from "../Components/sections/AcademicProgramsSection";
 import { TestimonialsSection } from "../Components/sections/TestimonialsSection";
@@ -25,10 +23,9 @@ export default function HomePage() {
         subtitle="শিশুদের উজ্জ্বল ভবিষ্যতের জন্য শিক্ষা দান"
         images={images}
         ctaText="আরও জানুন"
-        onCtaClick={() => alert("About page এ যাবে")}
       />
-        {/* <WelcomeSection />
-      <FeaturesSection /> */}
+        <WelcomeSection />
+      <FeaturesSection />
       <AcademicProgramsSection />
       <TestimonialsSection />
       <GallerySection />
