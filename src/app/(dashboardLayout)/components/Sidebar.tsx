@@ -45,10 +45,10 @@ const navigation = {
 export function Sidebar() {
   const pathname = usePathname()
   const router = useRouter()
-  const { data: session } = useSession()
+  // const { data: session } = useSession()
 
-  const userRole = session?.user?.role?.toLowerCase() as keyof typeof navigation
-  const menuItems = navigation[userRole] || navigation.student
+  // const userRole = session?.user?.role?.toLowerCase() as keyof typeof navigation
+  // const menuItems = navigation[userRole] || navigation.student
 
   return (
     <div className="flex flex-col w-64 bg-white border-r border-gray-200">
@@ -65,7 +65,7 @@ export function Sidebar() {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-4 py-4 space-y-2">
+      {/* <nav className="flex-1 px-4 py-4 space-y-2">
         {menuItems.map((item) => {
           const isActive = pathname === item.href
           const Icon = item.icon
@@ -85,22 +85,22 @@ export function Sidebar() {
             </button>
           )
         })}
-      </nav>
+      </nav> */}
 
       {/* User Info */}
       <div className="p-4 border-t border-gray-200">
         <div className="flex items-center space-x-3">
           <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
             <span className="text-white text-sm font-bold">
-              {session?.user?.name?.charAt(0) || 'U'}
+              {/* {session?.user?.name?.charAt(0) || 'U'} */}
             </span>
           </div>
           <div className="flex-1 min-w-0">
             <p className="text-sm font-medium text-gray-900 truncate">
-              {session?.user?.name}
+              {/* {session?.user?.name} */}
             </p>
             <p className="text-xs text-gray-500 capitalize">
-              {session?.user?.role?.toLowerCase()}
+              {/* {session?.user?.role?.toLowerCase()} */}
             </p>
           </div>
         </div>
