@@ -10,14 +10,13 @@
   status: 'active' | 'inactive';
 }
 
-export interface ClassManagementProps {
+  export interface ClassManagementProps {
   classes: Class[];
-  teachers: Teacher[]; // Add this missing property
-  onClassCreate: (classData: Omit<Class, 'id'>) => void;
-  onClassUpdate: (id: string, classData: Omit<Class, 'id'>) => void;
+  onClassCreate: (classData: Omit<Class, "id">) => void;
+  onClassUpdate: (id: string, classData: Omit<Class, "id">) => void;
   onClassDelete: (id: string) => void;
+  onClassEdit: (classItem: Class) => void; // Add this line
 }
-  
   export interface ClassFormData {
   name: string;
   subject: string;
@@ -28,15 +27,15 @@ export interface ClassManagementProps {
   room: string;
   status: string;
 }
+
 export interface Teacher {
   id: string;
   name: string;
-  email: string;
-  phone: string;
-  subject: string;
-  joinDate: string;
-  status: 'active' | 'inactive';
-  classes: string[];
+  email: string;        
+  phone: string;        
+  joinDate: string;     
+  status: "active" | "inactive"; 
+  classes?: string[];   
 }
 
 export interface Student {
