@@ -3,7 +3,9 @@
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { GradientText } from "../gradient-text"
 import { useState, useEffect } from "react"
 
 import "swiper/css"
@@ -17,6 +19,7 @@ type HeroSectionProps = {
   images: string[]
   ctaText?: string
   onCtaClick?: () => void
+  ctaHref?: string
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -25,6 +28,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   images,
   ctaText = "Learn More",
   onCtaClick,
+  ctaHref = "/about"
 }) => {
   const [mounted, setMounted] = useState(false)
 
@@ -33,9 +37,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   }, [])
 
   const displayImages = images.length > 0 ? images : [
-    "/api/placeholder/1920/1080?text=School+1",
-    "/api/placeholder/1920/1080?text=School+2",
-    "/api/placeholder/1920/1080?text=School+3"
+    "/hero_images/student_1.jpg",
+    "/hero_images/student_2.jpg",
+    "/hero_images/student_3.jpg",
+    "/hero_images/student_4.jpg",
   ]
 
   if (!mounted) {
@@ -91,20 +96,47 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Content Overlay */}
       <div className="absolute inset-0 z-10 flex items-center justify-center">
         <div className="container text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
-            {title}
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-100 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
+          {/* GradientText for Title */}
+          <div className="mb-4 md:mb-6">
+            <GradientText
+              variant="primary"
+              size="4xl"
+              weight="bold"
+              align="center"
+              responsive
+              className="drop-shadow-lg"
+            >
+              {title}
+            </GradientText>
+          </div>
+          
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-100 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
             {subtitle}
           </p>
+          
           {ctaText && (
-            <Button
-              onClick={onCtaClick}
-              size="lg"
-              className="bg-school-primary hover:bg-school-primary/90 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-            >
-              {ctaText}
-            </Button>
+            <>
+              {onCtaClick ? (
+                // If onCtaClick is provided, use Button with onClick
+                <Button
+                  onClick={onCtaClick}
+                  size="lg"
+                  className="bg-school-primary hover:bg-school-primary/90 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                >
+                  {ctaText}
+                </Button>
+              ) : (
+                // If no onCtaClick, use Link with href
+                <Link href={ctaHref}>
+                  <Button
+                    size="lg"
+                    className="bg-school-primary hover:bg-school-primary/90 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  >
+                    {ctaText}
+                  </Button>
+                </Link>
+              )}
+            </>
           )}
         </div>
       </div>

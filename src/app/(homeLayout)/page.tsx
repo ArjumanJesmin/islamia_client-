@@ -10,18 +10,16 @@ import WelcomeSection from "../Components/sections/WelcomeSection";
 
 import HeroSection from "../Components/ui/HeroSection/HeroSection";
 import Contact from "../contact/page";
-import AnnouncementsSection from "../Components/sections/Announcements/AnnouncementsSection";
+import Router from "next/router";
 
 export default function HomePage() {
-
-
-    const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Simulate data loading
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000); 
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -35,19 +33,18 @@ export default function HomePage() {
   return (
     <div>
       <HeroSection
-        title="ইসলামিয়া সরকারি প্রাথমিক বিদ্যালয়"
-        subtitle="শিশুদের উজ্জ্বল ভবিষ্যতের জন্য শিক্ষা দান"
-        images={images}
-        ctaText="আরও জানুন"
+        title="ইসলামিয়া সরকারি প্রাথমিক বিদ্যালয়"
+        subtitle="জ্ঞানের আলোয়ে উদ্ভাসিত একটি আধুনিক শিক্ষা প্রতিষ্ঠান"
+        images={["/hero_images/student_1.jpg"]}
+        ctaText="আমাদের সম্পর্কে জানুন"
       />
-        <WelcomeSection /> 
-       <FeaturesSection isLoading={isLoading} />
+      <WelcomeSection />
+      <FeaturesSection isLoading={isLoading} />
       <AcademicProgramsSection />
       <TestimonialsSection />
       <GallerySection />
       <Academics />
       <Contact />
-      <AnnouncementsSection />
     </div>
   );
 }

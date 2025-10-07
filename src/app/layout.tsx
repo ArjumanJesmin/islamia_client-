@@ -2,6 +2,7 @@
 import { Toaster } from "sonner"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { NotificationProvider } from "./Components/sections/Announcements/contexts/NotificationContext"
 
 export const metadata = {
   title: "My School Management App",
@@ -17,8 +18,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen bg-background font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <Toaster />
+            <NotificationProvider>
           {children}
+          </NotificationProvider>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

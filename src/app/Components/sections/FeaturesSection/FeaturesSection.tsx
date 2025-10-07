@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { FeatureCard } from "./feature-card";
 import { FeatureCardSkeleton } from "./feature-card-skeleton";
 import { Skeleton } from "@/components/ui/skeleton";
+import { GradientText } from "../../ui/gradient-text";
 
 // Import test.json data directly
 import testData from '../../../../../test.json';
@@ -34,12 +35,16 @@ export function FeaturesSection({ isLoading = false }: FeaturesSectionProps) {
             </>
           ) : (
             <>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                আমাদের{" "}
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  বিশেষত্ব
-                </span>
-              </h2>
+              <GradientText
+                variant="primary"
+                size="4xl"
+                weight="bold"
+                align="center"
+                responsive
+                className="mb-6"
+              >
+                আমাদের বিশেষত্ব
+              </GradientText>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 {schoolInfo.motto}
               </p>
@@ -129,9 +134,16 @@ export function FeaturesSection({ isLoading = false }: FeaturesSectionProps) {
             </div>
           ) : (
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
-              <h3 className="text-2xl font-bold text-foreground mb-4">
+              <GradientText
+                variant="secondary"
+                size="2xl"
+                weight="bold"
+                align="center"
+                withLine
+                className="mb-4"
+              >
                 আমাদের প্রতিশ্রুতি
-              </h3>
+              </GradientText>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
                 আমরা প্রতিটি শিক্ষার্থীর সাফল্যের জন্য প্রতিশ্রুতিবদ্ধ। আধুনিক শিক্ষা পদ্ধতি, 
                 অভিজ্ঞ শিক্ষক এবং উন্নত সুযোগ-সুবিধার মাধ্যমে আমরা শিক্ষার্থীদের সর্বোচ্চ সম্ভাবনা 

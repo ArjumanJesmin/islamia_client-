@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ModeToggle } from "../DarkModeToggle";
+import { NotificationBell } from "../../sections/Announcements/NotificationBell"; // Import the NotificationBell
 import logo from "../../../../../public/islamia_logo.svg";
 
 export default function Navbar() {
@@ -66,11 +67,16 @@ export default function Navbar() {
                 যোগাযোগ
               </Link>
             </div>
+            
+            {/* Notification Bell for Desktop */}
+            <NotificationBell />
             <ModeToggle />
           </div>
 
           {/* Mobile Navigation */}
           <div className="flex md:hidden items-center space-x-2">
+            {/* Notification Bell for Mobile */}
+            <NotificationBell />
             <ModeToggle />
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
@@ -108,6 +114,17 @@ export default function Navbar() {
                   >
                     যোগাযোগ
                   </Link>
+                  
+                  {/* Mobile Notification Section */}
+                  <div className="pt-4 border-t border-border">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="font-semibold">নোটিফিকেশন</h3>
+                      <span className="text-xs text-muted-foreground">
+                        সর্বশেষ আপডেট
+                      </span>
+                    </div>
+                    {/* You can add mobile-specific notification items here if needed */}
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>
