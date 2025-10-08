@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Users } from "lucide-react";
 import Link from "next/link";
+import { GradientText } from "../../Components/ui/gradient-text";
 
 const ContactCTA = () => {
     return (
@@ -17,9 +18,16 @@ const ContactCTA = () => {
                     {/* Content */}
                     <div className="relative z-10">
                         {/* Heading */}
-                        <h3 className="text-4xl font-bold mb-6 text-white dark:text-gray-100">
+                        <GradientText
+                            variant="primary"
+                            size="4xl"
+                            weight="bold"
+                            align="center"
+                            responsive
+                            className="mb-6 text-white"
+                        >
                             আরও তথ্য প্রয়োজন?
-                        </h3>
+                        </GradientText>
                         
                         {/* Description */}
                         <p className="mb-8 opacity-90 text-xl max-w-2xl mx-auto leading-relaxed text-white/90 dark:text-gray-200">

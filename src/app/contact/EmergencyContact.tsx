@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { GradientText } from "../Components/ui/gradient-text";
 import { MessageCircle, Phone, School } from "lucide-react";
 
 const EmergencyContact = () => {
@@ -6,12 +7,20 @@ const EmergencyContact = () => {
         <Card className="border-0 bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 overflow-hidden ">
               <div className="bg-gradient-to-r from-orange-500 to-red-500 h-2 w-full"></div>
               <CardHeader className="pb-4">
-                <CardTitle className="text-2xl text-gray-900 dark:text-white flex items-center gap-3">
+                <div className="flex items-center gap-3">
                   <div className="p-2 bg-orange-100 dark:bg-orange-900/30 rounded-2xl">
                     <School className="w-5 h-5 text-orange-600 dark:text-orange-400" />
                   </div>
-                  জরুরি যোগাযোগ
-                </CardTitle>
+                  <GradientText
+                    variant="accent"
+                    size="2xl"
+                    weight="bold"
+                    align="left"
+                    responsive={false}
+                  >
+                    জরুরি যোগাযোগ
+                  </GradientText>
+                </div>
               </CardHeader>
               <CardContent className="space-y-5">
                 <p className="text-muted-foreground text-xs text-center mb-3">

@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
+import { GradientText } from "../Components/ui/gradient-text";
 import {
   MapPin,
   Phone,
@@ -15,12 +15,20 @@ const ContactUs = () => {
             <Card className="border-0 shadow-2xl rounded-3xl bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-700 overflow-hidden h-full">
               <div className="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 w-full"></div>
               <CardHeader className="pb-4">
-                <CardTitle className="text-2xl text-gray-900 dark:text-white flex items-center gap-3">
+                <div className="flex items-center gap-3">
                   <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-2xl">
                     <MapPin className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                   </div>
-                  যোগাযোগ তথ্য
-                </CardTitle>
+                  <GradientText
+                    variant="primary"
+                    size="2xl"
+                    weight="bold"
+                    align="left"
+                    responsive={false}
+                  >
+                    যোগাযোগ তথ্য
+                  </GradientText>
+                </div>
               </CardHeader>
               <CardContent className="space-y-5">
                 <div className="flex items-start space-x-3 p-3 bg-white/50 dark:bg-gray-800/50 rounded-xl hover:shadow-lg transition-all duration-300">
@@ -121,5 +129,3 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
-
-

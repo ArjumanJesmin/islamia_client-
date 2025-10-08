@@ -23,48 +23,44 @@ export default function Academics() {
       subjects: ["বাংলা", "ইংরেজি", "গণিত", "বিজ্ঞান", "সমাজ", "ধর্ম"],
       age: "৬-৭ বছর",
       seats: 40,
-      color: "from-blue-500 to-cyan-500"
+      color: "from-blue-500 to-cyan-500",
     },
     {
-      grade: "দ্বিতীয় শ্রেণী", 
+      grade: "দ্বিতীয় শ্রেণী",
       subjects: ["বাংলা", "ইংরেজি", "গণিত", "বিজ্ঞান", "সমাজ", "ধর্ম"],
       age: "৭-৮ বছর",
       seats: 40,
-      color: "from-green-500 to-emerald-500"
+      color: "from-green-500 to-emerald-500",
     },
     {
       grade: "তৃতীয় শ্রেণী",
       subjects: ["বাংলা", "ইংরেজি", "গণিত", "বিজ্ঞান", "সমাজ", "ধর্ম"],
       age: "৮-৯ বছর",
       seats: 35,
-      color: "from-orange-500 to-amber-500"
+      color: "from-orange-500 to-amber-500",
     },
     {
       grade: "চতুর্থ শ্রেণী",
       subjects: ["বাংলা", "ইংরেজি", "গণিত", "বিজ্ঞান", "সমাজ", "ধর্ম"],
       age: "৯-১০ বছর",
       seats: 35,
-      color: "from-purple-500 to-pink-500"
+      color: "from-purple-500 to-pink-500",
     },
     {
       grade: "পঞ্চম শ্রেণী",
       subjects: ["বাংলা", "ইংরেজি", "গণিত", "বিজ্ঞান", "সমাজ", "ধর্ম"],
       age: "১০-১১ বছর",
       seats: 35,
-      color: "from-red-500 to-rose-500"
-    }
+      color: "from-red-500 to-rose-500",
+    },
   ];
 
   const nextSlide = () => {
-    setActiveIndex((prev) => 
-      prev === classes.length - 1 ? 0 : prev + 1
-    );
+    setActiveIndex((prev) => (prev === classes.length - 1 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setActiveIndex((prev) => 
-      prev === 0 ? classes.length - 1 : prev - 1
-    );
+    setActiveIndex((prev) => (prev === 0 ? classes.length - 1 : prev - 1));
   };
 
   useEffect(() => {
@@ -79,21 +75,22 @@ export default function Academics() {
       <div className="container">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <div className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            একাডেমিক 
-            <GradientText variant="primary" className="ml-4">
-              তথ্য
-            </GradientText>
-          </div>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            আমাদের শিক্ষা কার্যক্রম, শ্রেণীভিত্তিক পাঠ্যসূচি এবং একাডেমিক ক্যালেন্ডার
-          </p>
+          <GradientText
+            variant="primary"
+            size="4xl"
+            weight="bold"
+            align="center"
+            responsive
+            className="mb-6"
+          >
+            একাডেমিক তথ্য
+          </GradientText>
         </div>
 
         {/* Class Information Carousel */}
-        <ClassCarousel 
-          classes={classes} 
-          activeIndex={activeIndex} 
+        <ClassCarousel
+          classes={classes}
+          activeIndex={activeIndex}
           setActiveIndex={setActiveIndex}
           nextSlide={nextSlide}
           prevSlide={prevSlide}
@@ -106,8 +103,8 @@ export default function Academics() {
         <CurriculumSection />
 
         {/* Contact CTA */}
-        <ContactCTA/>
-          </div>
-        </div>
-      );
-    }
+        <ContactCTA />
+      </div>
+    </div>
+  );
+}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Home, Search} from "lucide-react";
+import { GradientText } from "./Components/ui/gradient-text";
+import { Home, Search } from "lucide-react";
 
 export default function NotFound() {
   return (
@@ -22,18 +23,31 @@ export default function NotFound() {
 
             {/* 404 Text */}
             <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
-              <span className="text-6xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <GradientText
+                variant="primary"
+                size="6xl"
+                weight="extrabold"
+                align="center"
+                responsive={false}
+              >
                 404
-              </span>
+              </GradientText>
             </div>
           </div>
         </div>
 
         {/* Content */}
         <div className="space-y-6 mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+          <GradientText
+            variant="accent"
+            size="4xl"
+            weight="bold"
+            align="center"
+            responsive
+            className="mb-2"
+          >
             ওহো! পৃষ্ঠাটি হারিয়ে গেছে
-          </h1>
+          </GradientText>
 
           <p className="text-xl text-gray-600 dark:text-gray-300">
             এটি এমন দেখাচ্ছে যে আপনি যে পৃষ্ঠাটি খুঁজছেন তা আমরা খুঁজে পাচ্ছি না

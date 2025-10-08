@@ -47,12 +47,17 @@ export function TestimonialsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            আমাদের সম্পর্কে{" "}
-            <GradientText variant="primary">
-              অভিভাবকদের মতামত
-            </GradientText>
-          </h2>
+          <GradientText
+            variant="primary"
+            size="4xl"
+            weight="bold"
+            align="center"
+            responsive
+            withLine
+            className="mb-6"
+          >
+            অভিভাবকদের মতামত
+          </GradientText>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             আমাদের শিক্ষা ব্যবস্থা সম্পর্কে অভিভাবক ও শিক্ষার্থীদের মূল্যবান মতামত
           </p>

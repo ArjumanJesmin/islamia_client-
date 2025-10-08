@@ -1,22 +1,39 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BookOpen } from 'lucide-react';
 import React from 'react';
+import { GradientText } from '../../Components/ui/gradient-text';
 
 const CurriculumSection = () => {
     return (
         <section className="mb-20">
       <Card className="border-0 rounded-3xl bg-gradient-to-br from-white to-emerald-50 dark:from-gray-800 dark:to-emerald-900/20 shadow-2xl overflow-hidden">
         <CardHeader className="bg-gradient-to-r from-emerald-500/10 to-green-500/10 dark:from-emerald-500/20 dark:to-green-500/20 py-12">
-          <CardTitle className="text-3xl text-emerald-600 dark:text-emerald-400 flex items-center gap-4 justify-center">
+          <div className="flex items-center gap-4 justify-center">
             <div className="p-3 bg-white dark:bg-gray-800 rounded-2xl shadow-lg">
               <BookOpen className="h-8 w-8" />
             </div>
-            পাঠ্যক্রম ও শিক্ষা পদ্ধতি
-          </CardTitle>
+            <GradientText
+              variant="primary"
+              size="3xl"
+              weight="bold"
+              align="center"
+              responsive
+            >
+              পাঠ্যক্রম ও শিক্ষা পদ্ধতি
+            </GradientText>
+          </div>
         </CardHeader>
         <CardContent className="pt-8 pb-12 px-8">
           <div className="text-center mb-12">
-            <h4 className="font-semibold text-2xl mb-4 text-foreground dark:text-gray-200">প্রধান বৈশিষ্ট্য:</h4>
+            <GradientText
+              variant="secondary"
+              size="2xl"
+              weight="semibold"
+              align="center"
+              className="mb-4"
+            >
+              প্রধান বৈশিষ্ট্য
+            </GradientText>
             <p className="text-muted-foreground dark:text-gray-400 max-w-2xl mx-auto">
               আধুনিক ও প্রগতিশীল শিক্ষা পদ্ধতির মাধ্যমে শিক্ষার্থীদের সর্বোত্তম বিকাশ নিশ্চিতকরণ
             </p>
@@ -43,7 +60,7 @@ const CurriculumSection = () => {
                 color: "from-green-500 to-emerald-500"
               },
               { 
-                title: "সৃজনশীল活动", 
+                title: "সৃজনশীল", 
                 desc: "নিয়মিত সৃজনশীল活动 ও প্রকল্প ভিত্তিক শিক্ষার ব্যবস্থা",
                 icon: "🎨",
                 color: "from-orange-500 to-amber-500"
@@ -55,8 +72,8 @@ const CurriculumSection = () => {
                 color: "from-red-500 to-rose-500"
               },
               { 
-                title: "সাংস্কৃতিক活动", 
-                desc: "খেলাধুলা, সাংস্কৃতিক活动 ও সহশিক্ষা কার্যক্রম",
+                title: "সাংস্কৃতিক", 
+                desc: "খেলাধুলা, সাংস্কৃতিক ও সহশিক্ষা কার্যক্রম",
                 icon: "⚽",
                 color: "from-indigo-500 to-blue-500"
               }

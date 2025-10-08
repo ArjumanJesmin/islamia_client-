@@ -3,7 +3,6 @@ import { MessageCircle } from "lucide-react";
 import { GradientText } from "../Components/ui/gradient-text";
 import SchoolMap from "./SchoolMap";
 import EmergencyContact from "./EmergencyContact";
-
 import SendEmail from "./SendEmail";
 import ContactUs from "./ContactUs";
 
@@ -16,12 +15,17 @@ export default function Contact() {
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-school-primary to-school-secondary rounded-3xl shadow-2xl mb-6">
             <MessageCircle className="w-10 h-10 text-white" />
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            যোগাযোগ
-            <GradientText variant="primary" className="ml-4">
-              করুন
-            </GradientText>
-          </h1>
+          <GradientText
+            variant="primary"
+            size="4xl"
+            weight="bold"
+            align="center"
+            responsive
+            withLine
+            className="mb-6"
+          >
+            যোগাযোগ করুন
+          </GradientText>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             আপনার যেকোনো প্রশ্ন বা মতামত আমাদের জানান। আমরা আপনার সাথে যোগাযোগ
             করতে পেরে আনন্দিত হব।

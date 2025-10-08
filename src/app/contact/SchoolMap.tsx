@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { GradientText } from "../Components/ui/gradient-text";
 import { MapPin } from "lucide-react";
 import React from "react";
 
@@ -9,12 +10,20 @@ const SchoolMap = () => {
           <Card className="border-0 shadow-2xl rounded-3xl overflow-hidden">
             <div className="bg-gradient-to-r from-school-primary to-school-secondary h-2 w-full"></div>
             <CardHeader className="pb-4">
-              <CardTitle className="text-3xl text-gray-900 dark:text-white flex items-center gap-3">
+              <div className="flex items-center gap-3">
                 <div className="p-2 bg-school-primary/10 rounded-2xl">
                   <MapPin className="w-6 h-6 text-school-primary" />
                 </div>
-                আমাদের অবস্থান
-              </CardTitle>
+                <GradientText
+                  variant="primary"
+                  size="3xl"
+                  weight="bold"
+                  align="left"
+                  responsive={false}
+                >
+                  আমাদের অবস্থান
+                </GradientText>
+              </div>
             </CardHeader>
             <CardContent className="p-6">
               <div className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 rounded-2xl h-96 flex items-center justify-center relative overflow-hidden">

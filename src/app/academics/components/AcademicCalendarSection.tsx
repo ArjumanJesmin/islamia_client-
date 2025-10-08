@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar } from "lucide-react";
-
-// Academic Calendar Component
+import { GradientText } from "../../Components/ui/gradient-text";
 
 type EventData = {
   text: string;
@@ -63,12 +62,20 @@ export function AcademicCalendarSection() {
     <section className="mb-20">
       <Card className="border-0 rounded-3xl bg-gradient-to-br from-white to-blue-50 dark:from-gray-800 dark:to-blue-900/20 shadow-2xl overflow-hidden">
         <CardHeader className="bg-gradient-to-r from-school-primary/10 to-school-secondary/10 dark:from-school-primary/20 dark:to-school-secondary/20 py-12">
-          <CardTitle className="text-3xl text-school-primary dark:text-school-secondary flex items-center gap-4 justify-center">
+          <div className="flex items-center gap-4 justify-center">
             <div className="p-3 bg-white dark:bg-gray-800 rounded-2xl shadow-lg">
               <Calendar className="h-8 w-8" />
             </div>
-            একাডেমিক ক্যালেন্ডার ২০২৫
-          </CardTitle>
+            <GradientText
+              variant="primary"
+              size="3xl"
+              weight="bold"
+              align="center"
+              responsive
+            >
+              একাডেমিক ক্যালেন্ডার ২০২৫
+            </GradientText>
+          </div>
         </CardHeader>
 
         <CardContent className="pt-8 pb-12 px-8">
@@ -119,9 +126,15 @@ export function AcademicCalendarSection() {
           </div>
 
           <div className="mt-12 bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-800 dark:to-blue-900/30 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-            <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-6">
-              📊 বার্ষিক শিক্ষাক্রম সারাংশ
-            </h3>
+            <GradientText
+              variant="secondary"
+              size="2xl"
+              weight="bold"
+              align="center"
+              className="mb-6"
+            >
+              বার্ষিক শিক্ষাক্রম সারাংশ
+            </GradientText>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
               <div className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg">
                 <div className="text-2xl font-bold text-school-primary dark:text-school-secondary">

@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import { ArrowLeft, Shield, Database, UserCheck, Eye, Lock, Server } from "lucide-react";
+import { GradientText } from "../Components/ui/gradient-text";
 
 export default function PrivacyPolicy() {
   return (
@@ -23,7 +24,16 @@ export default function PrivacyPolicy() {
               <Shield className="w-6 h-6 text-school-primary" />
             </div>
             <div>
-              <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">গোপনীয়তা নীতি</h1>
+              <GradientText
+                variant="primary"
+                size="3xl"
+                weight="bold"
+                align="left"
+                responsive
+                className="mb-2"
+              >
+                গোপনীয়তা নীতি
+              </GradientText>
               <p className="text-sm sm:text-base text-muted-foreground">
                 সর্বশেষ আপডেট: {new Date().toLocaleDateString('bn-BD', { 
                   year: 'numeric', 
@@ -41,7 +51,15 @@ export default function PrivacyPolicy() {
             
             {/* Introduction */}
             <section className="space-y-3 sm:space-y-4">
-              <h2 className="text-lg sm:text-xl font-semibold text-foreground">ভূমিকা</h2>
+              <GradientText
+                variant="secondary"
+                size="xl"
+                weight="semibold"
+                align="left"
+                responsive={false}
+              >
+                ভূমিকা
+              </GradientText>
               <p className="text-sm sm:text-base text-muted-foreground text-justify leading-relaxed">
                 এডুপ্ল্যাটফর্ম ("আমরা," "আমাদের," বা "আমাদের") আপনার গোপনীয়তার প্রতি 
                 প্রতিশ্রুতিবদ্ধ। এই গোপনীয়তা নীতিটি ব্যাখ্যা করে যে আমরা কিভাবে আপনার 
@@ -52,10 +70,18 @@ export default function PrivacyPolicy() {
 
             {/* Information We Collect */}
             <section className="space-y-3 sm:space-y-4">
-              <h2 className="text-lg sm:text-xl font-semibold text-foreground flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <Database className="w-5 h-5 text-school-primary flex-shrink-0" />
-                আমরা কোন তথ্য সংগ্রহ করি
-              </h2>
+                <GradientText
+                  variant="primary"
+                  size="xl"
+                  weight="semibold"
+                  align="left"
+                  responsive={false}
+                >
+                  আমরা কোন তথ্য সংগ্রহ করি
+                </GradientText>
+              </div>
               <p className="text-sm sm:text-base text-muted-foreground">আমরা নিম্নলিখিত ধরনের তথ্য সংগ্রহ করি:</p>
               <ul className="space-y-2 ml-4 sm:ml-6 text-sm sm:text-base text-muted-foreground">
                 <li className="flex items-start gap-2">
@@ -83,7 +109,15 @@ export default function PrivacyPolicy() {
 
             {/* How We Use Information */}
             <section className="space-y-3 sm:space-y-4">
-              <h2 className="text-lg sm:text-xl font-semibold text-foreground">কিভাবে আমরা তথ্য ব্যবহার করি</h2>
+              <GradientText
+                variant="secondary"
+                size="xl"
+                weight="semibold"
+                align="left"
+                responsive={false}
+              >
+                কিভাবে আমরা তথ্য ব্যবহার করি
+              </GradientText>
               <ul className="space-y-2 ml-4 sm:ml-6 text-sm sm:text-base text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <div className="w-1.5 h-1.5 bg-school-secondary rounded-full mt-2 flex-shrink-0" />
@@ -114,10 +148,18 @@ export default function PrivacyPolicy() {
 
             {/* Data Sharing */}
             <section className="space-y-3 sm:space-y-4">
-              <h2 className="text-lg sm:text-xl font-semibold text-foreground flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <UserCheck className="w-5 h-5 text-school-primary flex-shrink-0" />
-                তথ্য শেয়ারিং
-              </h2>
+                <GradientText
+                  variant="primary"
+                  size="xl"
+                  weight="semibold"
+                  align="left"
+                  responsive={false}
+                >
+                  তথ্য শেয়ারিং
+                </GradientText>
+              </div>
               <p className="text-sm sm:text-base text-muted-foreground text-justify">
                 আমরা আপনার ব্যক্তিগত তথ্য তৃতীয় পক্ষের সাথে বিক্রি বা ভাগ করি না, 
                 নিম্নলিখিত ক্ষেত্রে ছাড়া:
@@ -144,10 +186,18 @@ export default function PrivacyPolicy() {
 
             {/* Data Security */}
             <section className="space-y-3 sm:space-y-4">
-              <h2 className="text-lg sm:text-xl font-semibold text-foreground flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <Lock className="w-5 h-5 text-school-primary flex-shrink-0" />
-                তথ্য সুরক্ষা
-              </h2>
+                <GradientText
+                  variant="primary"
+                  size="xl"
+                  weight="semibold"
+                  align="left"
+                  responsive={false}
+                >
+                  তথ্য সুরক্ষা
+                </GradientText>
+              </div>
               <p className="text-sm sm:text-base text-muted-foreground text-justify">
                 আমরা আপনার তথ্য রক্ষা করতে উপযুক্ত প্রযুক্তিগত এবং সাংগঠনিক ব্যবস্থা 
                 বাস্তবায়ন করি। এর মধ্যে রয়েছে:
@@ -176,7 +226,15 @@ export default function PrivacyPolicy() {
 
             {/* Your Rights */}
             <section className="space-y-3 sm:space-y-4">
-              <h2 className="text-lg sm:text-xl font-semibold text-foreground">আপনার অধিকার</h2>
+              <GradientText
+                variant="secondary"
+                size="xl"
+                weight="semibold"
+                align="left"
+                responsive={false}
+              >
+                আপনার অধিকার
+              </GradientText>
               <p className="text-sm sm:text-base text-muted-foreground">
                 আপনার ব্যক্তিগত তথ্য সম্পর্কে আপনার নিম্নলিখিত অধিকার রয়েছে:
               </p>
@@ -202,7 +260,15 @@ export default function PrivacyPolicy() {
 
             {/* Cookies */}
             <section className="space-y-3 sm:space-y-4">
-              <h2 className="text-lg sm:text-xl font-semibold text-foreground">কুকিজ</h2>
+              <GradientText
+                variant="primary"
+                size="xl"
+                weight="semibold"
+                align="left"
+                responsive={false}
+              >
+                কুকিজ
+              </GradientText>
               <p className="text-sm sm:text-base text-muted-foreground text-justify">
                 আমরা ব্যবহারকারীর অভিজ্ঞতা উন্নত করতে কুকিজ এবং অনুরূপ ট্র্যাকিং টেকনোলজি 
                 ব্যবহার করি। আপনি আপনার ব্রাউজার সেটিংসের মাধ্যমে কুকিজ নিয়ন্ত্রণ করতে পারেন।
@@ -211,7 +277,15 @@ export default function PrivacyPolicy() {
 
             {/* Changes to Policy */}
             <section className="space-y-3 sm:space-y-4">
-              <h2 className="text-lg sm:text-xl font-semibold text-foreground">নীতিতে পরিবর্তন</h2>
+              <GradientText
+                variant="secondary"
+                size="xl"
+                weight="semibold"
+                align="left"
+                responsive={false}
+              >
+                নীতিতে পরিবর্তন
+              </GradientText>
               <p className="text-sm sm:text-base text-muted-foreground text-justify">
                 আমরা যেকোনো সময় এই গোপনীয়তা নীতি আপডেট করতে পারি। আমরা আমাদের ওয়েবসাইটে 
                 আপডেটেড নীতি পোস্ট করে এবং প্রয়োজনে আপনাকে ইমেলের মাধ্যমে জানিয়ে পরিবর্তনগুলি 

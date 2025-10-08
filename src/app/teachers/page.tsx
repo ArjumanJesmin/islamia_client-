@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { GradientText } from "../Components/ui/gradient-text"
 
 export default function Teachers() {
   const teachers = [
@@ -53,13 +54,21 @@ export default function Teachers() {
   ]
 
   return (
-    <div className="min-h-screen pt-8">
+    <div className="min-h-screen pt-8 bg-gradient-to-br from-blue-50 to-green-50 dark:from-gray-900 dark:to-green-900/20">
       <div className="container">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <GradientText
+            variant="primary"
+            size="4xl"
+            weight="bold"
+            align="center"
+            responsive
+            withLine
+            className="mb-6"
+          >
             আমাদের শিক্ষকবৃন্দ
-          </h1>
+          </GradientText>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             অভিজ্ঞ, প্রশিক্ষিত ও নিবেদিতপ্রাণ শিক্ষকমণ্ডলী যারা শিক্ষার্থীদের ভবিষ্যত গড়তে প্রতিশ্রুতিবদ্ধ
           </p>
@@ -68,7 +77,7 @@ export default function Teachers() {
         {/* Teachers Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {teachers.map((teacher, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow text-center">
+            <Card key={index} className="hover:shadow-lg transition-shadow text-center border-0 shadow-md hover:shadow-xl transition-all duration-300">
               <CardHeader>
                 <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-school-primary to-school-secondary rounded-full flex items-center justify-center text-white text-xl font-bold">
                   {teacher.image.split('text=')[1]}
@@ -93,28 +102,78 @@ export default function Teachers() {
 
         {/* Teaching Philosophy */}
         <section className="mb-16">
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-2xl text-school-primary">📚 আমাদের শিক্ষাদর্শন</CardTitle>
+          <Card className="border-0 shadow-lg">
+            <CardHeader className="bg-gradient-to-r from-school-primary/10 to-school-secondary/10">
+              <GradientText
+                variant="secondary"
+                size="2xl"
+                weight="bold"
+                align="left"
+                responsive={false}
+              >
+                📚 আমাদের শিক্ষাদর্শন
+              </GradientText>
             </CardHeader>
-            <CardContent>
+            <CardContent className="pt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="font-semibold text-lg mb-4 text-foreground">শিক্ষার উদ্দেশ্য</h4>
+                  <GradientText
+                    variant="primary"
+                    size="lg"
+                    weight="semibold"
+                    align="left"
+                    responsive={false}
+                    className="mb-4"
+                  >
+                    শিক্ষার উদ্দেশ্য
+                  </GradientText>
                   <ul className="space-y-2 text-muted-foreground">
-                    <li>• শিক্ষার্থীদের সৃজনশীল চিন্তা শক্তি বিকাশ</li>
-                    <li>• নৈতিক ও আধ্যাত্মিক মূল্যবোধ সৃষ্টি</li>
-                    <li>• ডিজিটাল যুগের জন্য প্রস্তুতকরণ</li>
-                    <li>• সামাজিক দায়িত্ববোধ জাগরণ</li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-school-primary rounded-full mt-2 flex-shrink-0" />
+                      <span>শিক্ষার্থীদের সৃজনশীল চিন্তা শক্তি বিকাশ</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-school-primary rounded-full mt-2 flex-shrink-0" />
+                      <span>নৈতিক ও আধ্যাত্মিক মূল্যবোধ সৃষ্টি</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-school-primary rounded-full mt-2 flex-shrink-0" />
+                      <span>ডিজিটাল যুগের জন্য প্রস্তুতকরণ</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-school-primary rounded-full mt-2 flex-shrink-0" />
+                      <span>সামাজিক দায়িত্ববোধ জাগরণ</span>
+                    </li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg mb-4 text-foreground">শিক্ষা পদ্ধতি</h4>
+                  <GradientText
+                    variant="secondary"
+                    size="lg"
+                    weight="semibold"
+                    align="left"
+                    responsive={false}
+                    className="mb-4"
+                  >
+                    শিক্ষা পদ্ধতি
+                  </GradientText>
                   <ul className="space-y-2 text-muted-foreground">
-                    <li>• ইন্টারেক্টিভ ক্লাসরুম</li>
-                    <li>• ব্যবহারিক শিক্ষা</li>
-                    <li>• ব্যক্তিগত মনোযোগ</li>
-                    <li>• নিয়মিত মূল্যায়ন</li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-school-secondary rounded-full mt-2 flex-shrink-0" />
+                      <span>ইন্টারেক্টিভ ক্লাসরুম</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-school-secondary rounded-full mt-2 flex-shrink-0" />
+                      <span>ব্যবহারিক শিক্ষা</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-school-secondary rounded-full mt-2 flex-shrink-0" />
+                      <span>ব্যক্তিগত মনোযোগ</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-school-secondary rounded-full mt-2 flex-shrink-0" />
+                      <span>নিয়মিত মূল্যায়ন</span>
+                    </li>
                   </ul>
                 </div>
               </div>

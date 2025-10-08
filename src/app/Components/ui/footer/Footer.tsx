@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { GradientText } from "../gradient-text";
 import Newsletter from "./Newsletter";
 import logo from "../../../../../public/islamia_logo.svg";
 
@@ -30,9 +31,15 @@ export default function Footer() {
               <div className="w-12 h-12 flex items-center justify-center">
                 <Image src={logo} alt="Logo" height={40} width={40} />
               </div>
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-school-primary to-school-secondary bg-clip-text text-transparent">
+              <GradientText
+                variant="primary"
+                size="2xl"
+                weight="bold"
+                align="left"
+                responsive={false}
+              >
                 ইসলামিয়া সরকারি প্রাথমিক বিদ্যালয়
-              </h3>
+              </GradientText>
             </div>
             <p className="text-muted-foreground leading-relaxed max-w-2xl">
               মানসম্মত শিক্ষা ও নৈতিক মূল্যবোধের সমন্বয়ে গড়ে উঠা আমাদের শিক্ষা
@@ -112,9 +119,15 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-foreground">
+            <GradientText
+              variant="secondary"
+              size="lg"
+              weight="semibold"
+              align="left"
+              responsive={false}
+            >
               দ্রুত লিংক
-            </h4>
+            </GradientText>
             <ul className="space-y-3">
               {[
                 { href: "/", label: "হোম" },
@@ -123,6 +136,7 @@ export default function Footer() {
                 { href: "/teachers", label: "শিক্ষকবৃন্দ" },
                 { href: "/students", label: "শিক্ষার্থী" },
                 { href: "/contact", label: "যোগাযোগ" },
+               { href: "/terms", label: "ব্যবহারের শর্তাবলী" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -139,7 +153,15 @@ export default function Footer() {
 
           {/* Contact Information */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-foreground">যোগাযোগ</h4>
+            <GradientText
+              variant="primary"
+              size="lg"
+              weight="semibold"
+              align="left"
+              responsive={false}
+            >
+              যোগাযোগ
+            </GradientText>
             <div className="space-y-4">
               {[
                 {

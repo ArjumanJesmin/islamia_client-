@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowLeft, Shield, FileText, Users, Lock } from "lucide-react";
+import { GradientText } from "../Components/ui/gradient-text";
 
 export default function TermsOfService() {
   return (
@@ -10,7 +11,7 @@ export default function TermsOfService() {
         {/* Header */}
         <div className="mb-8">
           <Link
-            href="/signup"
+            href="/sign-up"
             className="inline-flex items-center text-sm font-medium text-school-primary hover:text-school-secondary transition-colors duration-200 mb-6"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
@@ -21,7 +22,15 @@ export default function TermsOfService() {
             <div className="p-2 bg-school-primary/10 rounded-lg">
               <FileText className="w-6 h-6 text-school-primary" />
             </div>
-            <h1 className="text-3xl font-bold text-foreground">সেবার শর্তাবলী</h1>
+            <GradientText
+              variant="primary"
+              size="3xl"
+              weight="bold"
+              align="left"
+              responsive
+            >
+              সেবার শর্তাবলী
+            </GradientText>
           </div>
           <p className="text-muted-foreground">
             সর্বশেষ আপডেট: {new Date().toLocaleDateString('bn-BD', { 
@@ -38,10 +47,18 @@ export default function TermsOfService() {
             
             {/* Introduction */}
             <section className="mb-8">
-              <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+              <div className="flex items-center gap-2 mb-4">
                 <Shield className="w-5 h-5 text-school-primary" />
-                ১. ভূমিকা
-              </h2>
+                <GradientText
+                  variant="primary"
+                  size="xl"
+                  weight="semibold"
+                  align="left"
+                  responsive={false}
+                >
+                  ১. ভূমিকা
+                </GradientText>
+              </div>
               <p className="mb-4 text-justify">
                 এডুপ্ল্যাটফর্মে স্বাগতম ("আমরা," "আমাদের," বা "আমাদের")। এই সেবার শর্তাবলী 
                 আমাদের শিক্ষামূলক প্ল্যাটফর্ম এবং সেবাগুলি ব্যবহারের জন্য প্রযোজ্য। আমাদের 
@@ -51,10 +68,18 @@ export default function TermsOfService() {
 
             {/* Account Terms */}
             <section className="mb-8">
-              <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+              <div className="flex items-center gap-2 mb-4">
                 <Users className="w-5 h-5 text-school-primary" />
-                ২. অ্যাকাউন্টের শর্তাবলী
-              </h2>
+                <GradientText
+                  variant="secondary"
+                  size="xl"
+                  weight="semibold"
+                  align="left"
+                  responsive={false}
+                >
+                  ২. অ্যাকাউন্টের শর্তাবলী
+                </GradientText>
+              </div>
               <ul className="space-y-2 ml-6 list-disc text-justify">
                 <li>আমাদের সেবা ব্যবহার করার জন্য আপনার বয়স কমপক্ষে ১৩ বছর হতে হবে</li>
                 <li>নিবন্ধনের সময় আপনাকে সঠিক এবং সম্পূর্ণ তথ্য প্রদান করতে হবে</li>
@@ -66,7 +91,16 @@ export default function TermsOfService() {
 
             {/* Acceptable Use */}
             <section className="mb-8">
-              <h2 className="text-xl font-semibold text-foreground mb-4">৩. গ্রহণযোগ্য ব্যবহার</h2>
+              <GradientText
+                variant="primary"
+                size="xl"
+                weight="semibold"
+                align="left"
+                responsive={false}
+                className="mb-4"
+              >
+                ৩. গ্রহণযোগ্য ব্যবহার
+              </GradientText>
               <p className="mb-4">আপনি সম্মত হচ্ছেন যে আপনি:</p>
               <ul className="space-y-2 ml-6 list-disc text-justify">
                 <li>কোনো অবৈধ উদ্দেশ্যে সেবাটি ব্যবহার করবেন না</li>
@@ -78,11 +112,18 @@ export default function TermsOfService() {
               </ul>
             </section>
 
-            
-
             {/* User Content */}
             <section className="mb-8">
-              <h2 className="text-xl font-semibold text-foreground mb-4">৫. ব্যবহারকারীর বিষয়বস্তু</h2>
+              <GradientText
+                variant="secondary"
+                size="xl"
+                weight="semibold"
+                align="left"
+                responsive={false}
+                className="mb-4"
+              >
+                ৫. ব্যবহারকারীর বিষয়বস্তু
+              </GradientText>
               <p className="mb-4 text-justify">
                 আপনি আমাদের প্ল্যাটফর্মে তৈরি এবং শেয়ার করা যেকোনো বিষয়বস্তুর মালিকানা 
                 ধরে রাখেন। বিষয়বস্তু পোস্ট করার মাধ্যমে, আপনি আমাদের সেবা প্রদানের একমাত্র 
@@ -93,10 +134,18 @@ export default function TermsOfService() {
 
             {/* Privacy */}
             <section className="mb-8">
-              <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+              <div className="flex items-center gap-2 mb-4">
                 <Lock className="w-5 h-5 text-school-primary" />
-                ৬. গোপনীয়তা
-              </h2>
+                <GradientText
+                  variant="primary"
+                  size="xl"
+                  weight="semibold"
+                  align="left"
+                  responsive={false}
+                >
+                  ৬. গোপনীয়তা
+                </GradientText>
+              </div>
               <p className="mb-4 text-justify">
                 আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ। কিভাবে আমরা আপনার ব্যক্তিগত তথ্য 
                 সংগ্রহ, ব্যবহার এবং সুরক্ষা করি তা বুঝতে আমাদের 
@@ -109,7 +158,16 @@ export default function TermsOfService() {
 
             {/* Termination */}
             <section className="mb-8">
-              <h2 className="text-xl font-semibold text-foreground mb-4">৭. সমাপ্তি</h2>
+              <GradientText
+                variant="secondary"
+                size="xl"
+                weight="semibold"
+                align="left"
+                responsive={false}
+                className="mb-4"
+              >
+                ৭. সমাপ্তি
+              </GradientText>
               <p className="mb-4 text-justify">
                 আমরা যেকোনো সময়, যেকোনো কারণে, কোনো নোটিশ ছাড়াই আপনার অ্যাকাউন্ট বাতিল 
                 বা স্থগিত করার অধিকার রাখি। আপনি যেকোনো সময় আমাদের সেবা ব্যবহার বন্ধ 
@@ -119,7 +177,16 @@ export default function TermsOfService() {
 
             {/* Changes to Terms */}
             <section className="mb-8">
-              <h2 className="text-xl font-semibold text-foreground mb-4">৮. শর্তাবলীতে পরিবর্তন</h2>
+              <GradientText
+                variant="primary"
+                size="xl"
+                weight="semibold"
+                align="left"
+                responsive={false}
+                className="mb-4"
+              >
+                ৮. শর্তাবলীতে পরিবর্তন
+              </GradientText>
               <p className="mb-4 text-justify">
                 আমরা যেকোনো সময় এই শর্তাবলী আপডেট করার অধিকার রাখি। পরিবর্তনগুলি 
                 কার্যকর হওয়ার আগে আমরা আপনাকে নোটিশ প্রদান করব। পরিবর্তনগুলির পরে 

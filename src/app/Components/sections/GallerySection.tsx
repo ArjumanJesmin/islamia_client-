@@ -51,9 +51,17 @@ export function GallerySection() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            আমাদের <GradientText variant="primary">গ্যালারি</GradientText>
-          </h2>
+          <GradientText
+            variant="primary"
+            size="4xl"
+            weight="bold"
+            align="center"
+            responsive
+            withLine
+            className="mb-6"
+          >
+            আমাদের গ্যালারি
+          </GradientText>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             স্কুল জীবনের স্মরণীয় মুহূর্ত এবং আমাদের ক্যাম্পাসের সৌন্দর্য
           </p>

@@ -51,12 +51,17 @@ export function AcademicProgramsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            আমাদের{" "}
-            <GradientText variant="primary">
-              একাডেমিক প্রোগ্রাম
-            </GradientText>
-          </h2>
+          <GradientText
+            variant="primary"
+            size="4xl"
+            weight="bold"
+            align="center"
+            responsive
+            withLine
+            className="mb-6"
+          >
+            আমাদের একাডেমিক প্রোগ্রাম
+          </GradientText>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             শিক্ষার্থীদের সার্বিক উন্নয়নের জন্য বিভিন্ন একাডেমিক ও সহশিক্ষা কার্যক্রম
           </p>
