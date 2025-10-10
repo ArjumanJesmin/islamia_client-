@@ -1,4 +1,3 @@
-// Components/auth/AuthForm.tsx
 "use client";
 
 import { useState } from "react";
@@ -7,6 +6,7 @@ import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 import { AuthFormData, AuthFormProps } from "../auth/type-auth";
 import { FormField } from "./type-auth";
+import { toast } from "sonner";
 
 export default function AuthForm({
   mode,
@@ -27,6 +27,7 @@ export default function AuthForm({
 
   const onSubmitForm: SubmitHandler<AuthFormData> = (data) => {
     onSubmit(data);
+    toast.message("আপনার ভর্তি ফর্ম সফলভাবে জমা হয়েছে!");
   };
 
   const getFieldType = (field: FormField): string => {

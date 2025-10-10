@@ -5,6 +5,7 @@ import { useState } from "react";
 import AuthForm from "../Components/auth/AuthForm";
 import { AuthFormData } from "../Components/auth/type-auth";
 import { GradientText } from "../Components/ui/gradient-text";
+import { toast } from "sonner";
 
 export default function SignInPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,10 +15,11 @@ export default function SignInPage() {
     setIsLoading(true);
     try {
       console.log("Sign In Data:", data);
-      // Add your signin logic here
+     toast.message("আপনার ভর্তি ফর্ম সফলভাবে জমা হয়েছে!");
       // await api.signIn(data);
     } catch (error) {
       console.error("Signin error:", error);
+      toast.error("Error")
     } finally {
       setIsLoading(false);
     }
@@ -29,8 +31,10 @@ export default function SignInPage() {
       console.log("Google SignIn clicked");
       // Add your Google signin logic here
       // await api.googleSignIn();
+      toast.message("আপনার ভর্তি ফর্ম সফলভাবে জমা হয়েছে!");
     } catch (error) {
       console.error("Google signin error:", error);
+      toast.error("error")
     } finally {
       setGoogleLoading(false);
     }

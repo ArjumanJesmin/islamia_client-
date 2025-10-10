@@ -1,10 +1,9 @@
-// components/AdmissionForm.tsx
 "use client";
 
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+
 import {
   CalendarIcon,
   Upload,
@@ -34,52 +33,25 @@ import { GradientText } from "../ui/gradient-text";
 import { cn } from "@/lib/utils";
 
 // Import the form components
-import {
-  Form,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormMessage,
-} from "./form";
-
-
-
-// Validation Schema
-const admissionFormSchema = z.object({
-  studentName: z.string().min(2, "ছাত্র/ছাত্রীর নাম কমপক্ষে ২ অক্ষর হতে হবে"),
-  fatherName: z.string().min(2, "পিতার নাম কমপক্ষে ২ অক্ষর হতে হবে"),
-  motherName: z.string().min(2, "মাতার নাম কমপক্ষে ২ অক্ষর হতে হবে"),
-  dateOfBirth: z.date(),
-  gender: z.string().min(1, "লিঙ্গ নির্বাচন করুন"),
-  className: z.string().min(1, "ক্লাস নির্বাচন করুন"),
-  address: z.string().min(10, "ঠিকানা কমপক্ষে ১০ অক্ষর হতে হবে"),
-  phone: z.string()
-    .min(11, "ফোন নম্বর কমপক্ষে ১১ ডিজিট হতে হবে")
-    .max(11, "ফোন নম্বর সর্বোচ্চ ১১ ডিজিট হতে হবে")
-    .regex(/^01[3-9]\d{8}$/, "সঠিক মোবাইল নম্বর দিন"),
-  email: z.string().email("সঠিক ইমেইল দিন").optional().or(z.literal("")),
-  birthCertificate: z.instanceof(File).optional(),
-  photo: z.instanceof(File).optional(),
-}).refine((data) => data.dateOfBirth instanceof Date && !isNaN(data.dateOfBirth.getTime()), {
-  message: "জন্ম তারিখ নির্বাচন করুন",
-  path: ["dateOfBirth"],
-});
-
-type AdmissionFormValues = z.infer<typeof admissionFormSchema>;
+import { FormItem, FormLabel, FormControl, FormMessage } from "./form";
+import { admissionFormSchema, AdmissionFormValues } from "./validation.schema";
+import { classOptions, genderOptions } from "./conostant";
+import { toast } from "sonner";
 
 // Simple date formatter without date-fns
 const formatDate = (date: Date): string => {
-  return date.toLocaleDateString('bn-BD', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
+  return date.toLocaleDateString("bn-BD", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 };
 
 export default function AdmissionForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [birthCertificateFile, setBirthCertificateFile] = useState<File | null>(null);
+  const [birthCertificateFile, setBirthCertificateFile] = useState<File | null>(
+    null
+  );
   const [photoFile, setPhotoFile] = useState<File | null>(null);
 
   const form = useForm<AdmissionFormValues>({
@@ -101,21 +73,23 @@ export default function AdmissionForm() {
     try {
       console.log("Admission Form Data:", data);
       // API call will go here
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      alert("আপনার ভর্তি ফর্ম সফলভাবে জমা হয়েছে!");
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      toast.message("আপনার ভর্তি ফর্ম সফলভাবে জমা হয়েছে!");
       form.reset();
       setBirthCertificateFile(null);
       setPhotoFile(null);
     } catch (error) {
       console.error("Form submission error:", error);
-      alert("দুঃখিত, ফর্ম জমা দেওয়া যায়নি। আবার চেষ্টা করুন।");
+      toast.error("দুঃখিত, ফর্ম জমা দেওয়া যায়নি। আবার চেষ্টা করুন।");
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleBirthCertificateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleBirthCertificateChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const file = event.target.files?.[0];
     if (file) {
       setBirthCertificateFile(file);
@@ -130,20 +104,6 @@ export default function AdmissionForm() {
       form.setValue("photo", file);
     }
   };
-
-  const classOptions = [
-    { value: "FIRST", label: "প্রথম শ্রেণী", description: "৬-৭ বছর" },
-    { value: "SECOND", label: "দ্বিতীয় শ্রেণী", description: "৭-৮ বছর" },
-    { value: "THIRD", label: "তৃতীয় শ্রেণী", description: "৮-৯ বছর" },
-    { value: "FOURTH", label: "চতুর্থ শ্রেণী", description: "৯-১০ বছর" },
-    { value: "FIFTH", label: "পঞ্চম শ্রেণী", description: "১০-১১ বছর" },
-  ];
-
-  const genderOptions = [
-    { value: "MALE", label: "ছেলে" },
-    { value: "FEMALE", label: "মেয়ে" },
-    { value: "OTHER", label: "অন্যান্য" },
-  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 dark:from-gray-900 dark:to-green-900/20 py-8 px-4">
@@ -174,7 +134,12 @@ export default function AdmissionForm() {
         <Card className="border-0 shadow-2xl rounded-2xl overflow-hidden">
           <CardHeader className="bg-gradient-to-r from-school-primary/10 to-school-secondary/10 text-center py-8">
             <CardTitle className="text-2xl">
-              <GradientText variant="secondary" size="2xl" weight="bold" align="center">
+              <GradientText
+                variant="secondary"
+                size="2xl"
+                weight="bold"
+                align="center"
+              >
                 অনলাইন ভর্তি আবেদন
               </GradientText>
             </CardTitle>
@@ -205,9 +170,9 @@ export default function AdmissionForm() {
                           <span>ছাত্র/ছাত্রীর নাম *</span>
                         </FormLabel>
                         <FormControl>
-                          <Input 
-                            placeholder="ছাত্র/ছাত্রীর পূর্ণ নাম লিখুন" 
-                            {...field} 
+                          <Input
+                            placeholder="ছাত্র/ছাত্রীর পূর্ণ নাম লিখুন"
+                            {...field}
                             className="h-12"
                           />
                         </FormControl>
@@ -217,7 +182,6 @@ export default function AdmissionForm() {
                       </FormItem>
                     )}
                   />
-
                   {/* Date of Birth */}
                   <Controller
                     name="dateOfBirth"
@@ -225,39 +189,64 @@ export default function AdmissionForm() {
                     render={({ field, fieldState }) => (
                       <FormItem className="flex flex-col">
                         <FormLabel>জন্ম তারিখ *</FormLabel>
+
                         <Popover>
                           <PopoverTrigger asChild>
                             <FormControl>
                               <Button
                                 variant={"outline"}
                                 className={cn(
-                                  "h-12 pl-3 text-left font-normal",
-                                  !field.value && "text-muted-foreground"
+                                  "h-12 pl-3 text-left font-normal w-full cursor-pointer hover:bg-gray-50 transition-colors",
+                                  !field.value && "text-muted-foreground",
+                                  fieldState.error && "border-red-500"
                                 )}
+                                type="button"
                               >
-                                {field.value ? (
-                                  formatDate(field.value)
-                                ) : (
-                                  <span>জন্ম তারিখ নির্বাচন করুন</span>
-                                )}
-                                <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                                <span className="flex-1 truncate">
+                                  {field.value ? (
+                                    formatDate(field.value)
+                                  ) : (
+                                    <span className="text-gray-500">
+                                      জন্ম তারিখ নির্বাচন করুন
+                                    </span>
+                                  )}
+                                </span>
+                                <CalendarIcon className="ml-auto h-4 w-4 opacity-50 flex-shrink-0 hover:opacity-100 transition-opacity" />
                               </Button>
                             </FormControl>
                           </PopoverTrigger>
-                          <PopoverContent className="w-auto p-0" align="start">
+
+                          <PopoverContent
+                            className="w-auto p-0 bg-white"
+                            align="start"
+                          >
                             <Calendar
                               mode="single"
                               selected={field.value}
-                              onSelect={field.onChange}
+                              onSelect={(date) => {
+                                field.onChange(date);
+                                const popoverContext = document.querySelector(
+                                  '[data-state="open"]'
+                                );
+                                if (popoverContext) {
+                                  document.dispatchEvent(
+                                    new MouseEvent("mousedown")
+                                  );
+                                }
+                              }}
                               disabled={(date) =>
-                                date > new Date() || date < new Date("1900-01-01")
+                                date > new Date() ||
+                                date < new Date("1900-01-01")
                               }
                               className="rounded-md border"
                             />
                           </PopoverContent>
                         </Popover>
+
                         {fieldState.error && (
-                          <FormMessage>{fieldState.error.message}</FormMessage>
+                          <FormMessage className="text-red-600 text-sm mt-1">
+                            {fieldState.error.message}
+                          </FormMessage>
                         )}
                       </FormItem>
                     )}
@@ -271,9 +260,9 @@ export default function AdmissionForm() {
                       <FormItem>
                         <FormLabel>পিতার নাম *</FormLabel>
                         <FormControl>
-                          <Input 
-                            placeholder="পিতার পূর্ণ নাম লিখুন" 
-                            {...field} 
+                          <Input
+                            placeholder="পিতার পূর্ণ নাম লিখুন"
+                            {...field}
                             className="h-12"
                           />
                         </FormControl>
@@ -283,7 +272,6 @@ export default function AdmissionForm() {
                       </FormItem>
                     )}
                   />
-
                   {/* Mother's Name */}
                   <Controller
                     name="motherName"
@@ -292,9 +280,9 @@ export default function AdmissionForm() {
                       <FormItem>
                         <FormLabel>মাতার নাম *</FormLabel>
                         <FormControl>
-                          <Input 
-                            placeholder="মাতার পূর্ণ নাম লিখুন" 
-                            {...field} 
+                          <Input
+                            placeholder="মাতার পূর্ণ নাম লিখুন"
+                            {...field}
                             className="h-12"
                           />
                         </FormControl>
@@ -304,7 +292,6 @@ export default function AdmissionForm() {
                       </FormItem>
                     )}
                   />
-
                   {/* Gender */}
                   <Controller
                     name="gender"
@@ -312,7 +299,10 @@ export default function AdmissionForm() {
                     render={({ field, fieldState }) => (
                       <FormItem>
                         <FormLabel>লিঙ্গ *</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
                           <FormControl>
                             <SelectTrigger className="h-12">
                               <SelectValue placeholder="লিঙ্গ নির্বাচন করুন" />
@@ -320,7 +310,10 @@ export default function AdmissionForm() {
                           </FormControl>
                           <SelectContent>
                             {genderOptions.map((option) => (
-                              <SelectItem key={option.value} value={option.value}>
+                              <SelectItem
+                                key={option.value}
+                                value={option.value}
+                              >
                                 {option.label}
                               </SelectItem>
                             ))}
@@ -332,7 +325,6 @@ export default function AdmissionForm() {
                       </FormItem>
                     )}
                   />
-
                   {/* Class */}
                   <Controller
                     name="className"
@@ -340,7 +332,10 @@ export default function AdmissionForm() {
                     render={({ field, fieldState }) => (
                       <FormItem>
                         <FormLabel>ভর্তি ক্লাস *</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
                           <FormControl>
                             <SelectTrigger className="h-12">
                               <SelectValue placeholder="ক্লাস নির্বাচন করুন" />
@@ -348,7 +343,10 @@ export default function AdmissionForm() {
                           </FormControl>
                           <SelectContent>
                             {classOptions.map((option) => (
-                              <SelectItem key={option.value} value={option.value}>
+                              <SelectItem
+                                key={option.value}
+                                value={option.value}
+                              >
                                 <div className="flex flex-col">
                                   <span>{option.label}</span>
                                   <span className="text-xs text-muted-foreground">
@@ -385,9 +383,9 @@ export default function AdmissionForm() {
                       <FormItem>
                         <FormLabel>মোবাইল নম্বর *</FormLabel>
                         <FormControl>
-                          <Input 
-                            placeholder="01XXXXXXXXX" 
-                            {...field} 
+                          <Input
+                            placeholder="01711121212"
+                            {...field}
                             className="h-12"
                           />
                         </FormControl>
@@ -405,9 +403,9 @@ export default function AdmissionForm() {
                       <FormItem>
                         <FormLabel>ইমেইল (ঐচ্ছিক)</FormLabel>
                         <FormControl>
-                          <Input 
-                            placeholder="email@example.com" 
-                            {...field} 
+                          <Input
+                            placeholder="islamiagps@gmail.com"
+                            {...field}
                             className="h-12"
                             type="email"
                           />
@@ -429,9 +427,9 @@ export default function AdmissionForm() {
                           <span>ঠিকানা *</span>
                         </FormLabel>
                         <FormControl>
-                          <Textarea 
-                            placeholder="পূর্ণ ঠিকানা লিখুন (গ্রাম, ডাকঘর, থানা, জেলা)" 
-                            {...field} 
+                          <Textarea
+                            placeholder="পূর্ণ ঠিকানা লিখুন (গ্রাম, ডাকঘর, থানা, জেলা)"
+                            {...field}
                             className="min-h-[100px] resize-none"
                           />
                         </FormControl>
@@ -470,7 +468,9 @@ export default function AdmissionForm() {
                       >
                         <Upload className="h-8 w-8 text-muted-foreground" />
                         <span className="text-sm font-medium">
-                          {birthCertificateFile ? birthCertificateFile.name : "ফাইল আপলোড করুন"}
+                          {birthCertificateFile
+                            ? birthCertificateFile.name
+                            : "ফাইল আপলোড করুন"}
                         </span>
                         <span className="text-xs text-muted-foreground">
                           PDF, JPG, PNG (সর্বোচ্চ ২MB)
@@ -510,12 +510,15 @@ export default function AdmissionForm() {
               <div className="flex flex-col sm:flex-row gap-4 justify-between items-center pt-6 border-t border-border">
                 <p className="text-sm text-muted-foreground text-center sm:text-left">
                   ফর্ম জমা দেওয়ার মাধ্যমে আপনি আমাদের{" "}
-                  <a href="/terms" className="text-school-primary hover:underline">
+                  <a
+                    href="/terms"
+                    className="text-school-primary hover:underline"
+                  >
                     শর্তাবলী
                   </a>{" "}
                   মেনে নিচ্ছেন
                 </p>
-                
+
                 <Button
                   type="submit"
                   size="lg"
@@ -550,7 +553,9 @@ export default function AdmissionForm() {
             <CardContent className="p-6">
               <div className="text-2xl font-bold text-green-600 mb-2">🕒</div>
               <h3 className="font-semibold mb-2">ভর্তির সময়</h3>
-              <p className="text-sm text-muted-foreground">১লা জানুয়ারি - ২৮শে ফেব্রুয়ারি</p>
+              <p className="text-sm text-muted-foreground">
+                ১লা জানুয়ারি - ২৮শে ফেব্রুয়ারি
+              </p>
             </CardContent>
           </Card>
 
@@ -558,7 +563,9 @@ export default function AdmissionForm() {
             <CardContent className="p-6">
               <div className="text-2xl font-bold text-amber-600 mb-2">📝</div>
               <h3 className="font-semibold mb-2">প্রয়োজনীয় কাগজ</h3>
-              <p className="text-sm text-muted-foreground">জন্ম সনদ ও ২ কপি ছবি</p>
+              <p className="text-sm text-muted-foreground">
+                জন্ম সনদ ও ২ কপি ছবি
+              </p>
             </CardContent>
           </Card>
         </div>

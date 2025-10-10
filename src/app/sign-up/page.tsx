@@ -4,6 +4,7 @@ import { useState } from "react";
 import AuthForm from "../Components/auth/AuthForm";
 import { AuthFormData } from "../Components/auth/type-auth";
 import { GradientText } from "../Components/ui/gradient-text";
+import { toast } from "sonner";
 
 export default function SignUpPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -28,8 +29,10 @@ export default function SignUpPage() {
       console.log("Google SignUp clicked");
       // Add your Google signup logic here
       // await api.googleSignUp();
+      toast.message("আপনার ভর্তি ফর্ম সফলভাবে জমা হয়েছে!");
     } catch (error) {
       console.error("Google signup error:", error);
+      toast.error("Error")
     } finally {
       setGoogleLoading(false);
     }

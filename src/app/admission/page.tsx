@@ -1,4 +1,3 @@
-// app/admission/page.tsx
 import AdmissionForm from "../Components/AdmissionForm/AdmissionForm";
 import { Metadata } from "next";
 
