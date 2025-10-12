@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import MethodSection from "./components/MethodSection";
 import Philosophy from "./components/Philosophy ";
+import TeacherCard from "./components/TeacherCard"; 
 
 export default function Teachers() {
   const teachers = [
@@ -21,7 +22,7 @@ export default function Teachers() {
       qualification: "বিএড, এমএ",
       experience: "২৯ বছর",
       subject: "ইংরেজি, গণিত",
-      image: "/api/placeholder/200/200?text=MI",
+      image: "/teacher/monirul.png",
       expertise: ["ইংরেজি", "গণিত", "শিক্ষা ব্যবস্থাপনা"],
       achievements: ["২৫+ বছর অভিজ্ঞতা", "শিক্ষা উন্নয়নে বিশেষ অবদান"],
       specialization: "ভাষা ও গণিত শিক্ষা",
@@ -32,7 +33,7 @@ export default function Teachers() {
       qualification: "বিএড, এম কম(ম্যানেজমেন্ট)",
       experience: "২৫ বছর",
       subject: "বাংলা, ইংরেজি, গণিত",
-      image: "/api/placeholder/200/200?text=TK",
+      image: "/teacher/taslima1.png",
       expertise: ["বাংলা", "ইংরেজি", "ব্যবস্থাপনা"],
       achievements: ["২৫+ বছর অভিজ্ঞতা"],
       specialization: "মানবিক ও ব্যবস্থাপনা",
@@ -43,7 +44,7 @@ export default function Teachers() {
       qualification: "ডিপিএড, এমএসএস(সমাজবিজ্ঞান)",
       experience: "০৯ বছর",
       subject: "গণিত, বিজ্ঞান, ইংরেজি, বাংলাদেশ ও বিশ্বপরিচয়",
-      image: "/api/placeholder/200/200?text=AJ",
+      image: "/teacher/jesmin.png",
       expertise: ["সমাজবিজ্ঞান", "গণিত", "বিজ্ঞান"],
       achievements: ["ডিজিটাল শিক্ষা বিশেষজ্ঞ"],
       specialization: "সামাজিক বিজ্ঞান",
@@ -54,7 +55,7 @@ export default function Teachers() {
       qualification: "ডিপিএড, এমএ(বাংলা)",
       experience: "০৮ বছর",
       subject: "বাংলা, ইংরেজি, বিজ্ঞান, ধর্ম",
-      image: "/api/placeholder/200/200?text=SD",
+      image: "/teacher/sumana.png",
       expertise: ["বাংলা সাহিত্য", "ধর্ম শিক্ষা", "ভাষা শিক্ষা"],
       achievements: ["সৃজনশীল শিক্ষা পদ্ধতি"],
       specialization: "ভাষা ও সাহিত্য",
@@ -65,7 +66,7 @@ export default function Teachers() {
       qualification: "ডিপিএড, এমএসএস(অর্থনীতি)",
       experience: "৮ বছর",
       subject: "গণিত, ইংরেজি, বাংলাদেশ ও বিশ্বপরিচয়, ধর্ম",
-      image: "/api/placeholder/200/200?text=SK",
+      image: "/teacher/shamima.png",
       expertise: ["অর্থনীতি", "গণিত", "সামাজিক বিজ্ঞান"],
       achievements: ["শিক্ষা উন্নয়নে বিশেষ অবদান"],
       specialization: "অর্থনীতি ও গণিত",
@@ -155,132 +156,10 @@ export default function Teachers() {
           ))}
         </div>
 
-        {/* Teachers Grid */}
+        {/* Teachers Grid - Use Client Component */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {teachers.map((teacher, index) => (
-            <Card
-              key={index}
-              className="group relative hover:shadow-2xl transition-all duration-500 border-0 shadow-lg hover:scale-105 bg-gradient-to-br from-white to-blue-50/50 dark:from-gray-800 dark:to-gray-700/50 overflow-hidden backdrop-blur-sm"
-            >
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-school-primary to-school-secondary" />
-
-              {/* Teacher Image & Basic Info */}
-              <CardHeader className="pb-4 relative z-10">
-                <div className="absolute top-4 right-4">
-                  <Badge
-                    variant="secondary"
-                    className={`${
-                      teacher.position === "প্রধান শিক্ষক"
-                        ? "bg-gradient-to-r from-amber-100 to-amber-50 text-amber-800 border-amber-200 shadow"
-                        : "bg-gradient-to-r from-blue-100 to-blue-50 text-blue-800 border-blue-200 shadow"
-                    } backdrop-blur-sm`}
-                  >
-                    {teacher.position}
-                  </Badge>
-                </div>
-
-                {/* Teacher Avatar */}
-                <div className="relative">
-                  <div className="w-28 h-28 mx-auto mb-4 bg-gradient-to-br from-school-primary to-school-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-2xl group-hover:scale-110 transition-transform duration-300 border-4 border-white/80 dark:border-gray-800/80">
-                    {teacher.image.split("text=")[1]}
-                  </div>
-                  {/* Experience Badge */}
-                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-gradient-to-r from-green-500 to-emerald-600 text-white border-0 shadow-lg px-3 py-1">
-                      <Clock className="w-3 h-3 mr-1" />
-                      {teacher.experience}
-                    </Badge>
-                  </div>
-                </div>
-
-                <CardTitle className="text-xl text-foreground text-center mb-2 font-bold">
-                  {teacher.name}
-                </CardTitle>
-
-                <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                  <GraduationCap className="w-4 h-4 text-school-primary" />
-                  <span>{teacher.qualification}</span>
-                </div>
-
-                {/* Specialization */}
-                {teacher.specialization && (
-                  <div className="mt-2 text-center">
-                    <Badge
-                      variant="outline"
-                      className="bg-school-primary/5 text-school-primary border-school-primary/20 text-xs"
-                    >
-                      {teacher.specialization}
-                    </Badge>
-                  </div>
-                )}
-              </CardHeader>
-
-              <CardContent className="space-y-4 pt-6 relative z-10">
-                {/* Subjects */}
-                <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <BookOpen className="w-4 h-4 text-school-secondary" />
-                    <span className="font-semibold text-foreground">
-                      শিক্ষাদান বিষয়
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {teacher.subject.split(",").map((subj, idx) => (
-                      <Badge
-                        key={idx}
-                        variant="outline"
-                        className="bg-blue-50/80 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-700 text-xs backdrop-blur-sm"
-                      >
-                        {subj.trim()}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Expertise Areas */}
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <Target className="w-4 h-4 text-green-500" />
-                    <span className="text-sm font-semibold text-foreground">
-                      বিশেষজ্ঞতা
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap gap-1">
-                    {teacher.expertise.map((exp, idx) => (
-                      <Badge
-                        key={idx}
-                        variant="secondary"
-                        className="bg-green-50/80 dark:bg-green-900/20 text-green-700 dark:text-green-300 border-green-200 dark:border-green-700 text-xs"
-                      >
-                        {exp}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Achievements */}
-                <div className="pt-3 border-t border-gray-200/50 dark:border-gray-600/50">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Award className="w-4 h-4 text-amber-500" />
-                    <span className="text-sm font-semibold text-foreground">
-                      অর্জন ও স্বীকৃতি
-                    </span>
-                  </div>
-                  <div className="space-y-2">
-                    {teacher.achievements.map((achievement, idx) => (
-                      <div
-                        key={idx}
-                        className="text-xs text-muted-foreground flex items-start gap-2 bg-amber-50/50 dark:bg-amber-900/10 rounded-lg p-2"
-                      >
-                        <div className="w-1.5 h-1.5 bg-amber-400 rounded-full mt-1 flex-shrink-0" />
-                        <span className="flex-1">{achievement}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <TeacherCard key={index} teacher={teacher} />
           ))}
         </div>
 
