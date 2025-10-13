@@ -16,10 +16,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-background font-sans antialiased">
+      <body 
+        className="min-h-screen bg-background font-sans antialiased"
+        suppressHydrationWarning
+      >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-            <NotificationProvider>
-          {children}
+          <NotificationProvider>
+            {children}
           </NotificationProvider>
           <Toaster />
         </ThemeProvider>
